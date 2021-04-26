@@ -659,6 +659,9 @@ downloadBoost()
         curl -L -o "$BOOST_TARBALL" "$DOWNLOAD_SRC"
         doneSection
     fi
+
+    echo "4eb3b8d442b426dc35346235c8733b5ae35ba431690e38c6a8263dce9fcbb402  $BOOST_TARBALL" | shasum -a 256 -c
+    if [ $? != 0 ]; then echo "Error checksum."; exit 1; fi
 }
 
 #===============================================================================
